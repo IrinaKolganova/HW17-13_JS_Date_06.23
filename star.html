@@ -7,6 +7,66 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="./star.js"></script>
+    <h1>Сервис комментариев со спам фильтром</h1>
+    <div>
+      <h2>Оставьте ваш комментарий</h2>
+      <p>Введите ваше ФИО:</p>
+      <input type="text" class="name" id="name" name="name" />
+      <label>Не показывать моё имя</label
+      ><input type="checkbox" id="checkbox" />
+      <p>Введите ссылку вашего аватара:</p>
+      <input class="photo" id="photo" />
+      <p>Оставьте комментарий:</p>
+      <input type="text" class="chat" id="chat" />
+      <input type="button" value="Отправить" id="button" />
+    </div>
+
+    <div>
+      <h2>Чат</h2>
+      <p class="userName" id="userName"></p>
+      <p id="date"></p>
+      <img src="" class="userPhoto" id="userPhoto" />
+      <p class="userChat" id="userChat"></p>
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>
+
+<!-- ДЗ13 недели:
+- напротив аватара и имени должна появляться дата когда и во сколько был написан комментарий; - OK
+- под заголовком «Оставьте ваш комментарий» должен быть чекбокс, который даёт выбор показывать ваше имя в комментарии или нет; -ОК
+- если пользователь не указал имя, то вместо имени должно появляться `username` ; - ОК
+- если пользователь не ввел ссылку на аватар, то должна появляться стандартная аватарка. Стандартных аватаров должно быть больше пяти, они должны подставляться в рандомном порядке. - OK -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ДЗ, предыдущая версия. -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./star.js"></script>
+  </body>
+</html> -->
