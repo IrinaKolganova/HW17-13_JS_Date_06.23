@@ -1,13 +1,14 @@
 const bday = document.getElementById('birthDay'); // ВОТ ТУТ НЕ ПОНИМАЮ, КАК ИМЕННО ВЫБРАТЬ ДАТУ ДНЯ РОЖДЕНИЯ? чЕРЕЗ TEXTCONTENT НА ВЫХОДИТ, НАПРИМЕР...
+const bdayValue = new Date(bday.value);
+//console.log(bdayValue); - вот тут выходит invalid date
 const today = new Date();
-const diff = bday(Date.now()) - today(Date.now());
-
+//console.log(today);
+const diffInMillisec = bdayValue - today;
+const diffDay = Math.floor(diffInMillisec / (1000 * 60 * 60 * 24));
 function getDiff() {
-  if (diff > 0) { console.log(Math.floor((Date.parse(bday) - Date.parse(today)) / 1000 / 60 / 60 / 24)) }
+  if (diffDay > 0) { console.log(diffDay) } else { console.log('Ваш день рождения закончился'); }
 }
-  else { console.log('Ваш день рождения закончился'); }
-
-addEventListener('click', getDiff);
+button.addEventListener('click', getDiff);
 
 
 

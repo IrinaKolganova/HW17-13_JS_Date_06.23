@@ -1,4 +1,4 @@
-let options = {
+const options = {
     day: 'numeric',
     month: 'numeric',
     year: 'numeric',
@@ -6,25 +6,33 @@ let options = {
     hour: 'numeric',
     minute: 'numeric'
 };
-let nameInput = document.getElementById('name');
-let check = document.getElementById('checkbox');
-let photo = document.getElementById('photo');
-let chat = document.getElementById('chat');
-let button = document.getElementById('button');
+const nameInput = document.getElementById('name');
+const check = document.getElementById('checkbox');
+const photo = document.getElementById('photo');
+const chat = document.getElementById('chat');
+const button = document.getElementById('button');
 
-let userName = document.getElementById('userName');
-let userPhoto = document.getElementById('userPhoto');
-let userChat = document.getElementById('userChat');
-let date = document.getElementById('date');
+const userName = document.getElementById('userName');
+const userPhoto = document.getElementById('userPhoto');
+const userChat = document.getElementById('userChat');
+const date = document.getElementById('date');
 
-let photoRandom = Math.round(Math.random() * 10 - 4);
-
+// function getUserName() {
+//     const newName = nameInput.value[0].toUpperCase() + nameInput.value.substring(1).toLowerCase();
+//     const p = document.createElement('p');
+//     p.textContent = newName;
+//     userName.appendChild(p);
+//     nameInput.value = '';
+// }
 function getCheck() {
-    if (check.checked || document.getElementById('name').value === '') { userName.textContent = 'username'; }
+    if (check.checked || document.getElementById('name').value === '') { userName.textContent = 'username'; nameInput.value = ''; }
     else {
-        let newName = nameInput.value[0].toUpperCase() + nameInput.value.slice(1).toLowerCase();
-        return (userName.textContent = newName);
-        document.getElementById('userName').textContent = document.getElementById('name').value;
+        const newName = nameInput.value[0].toUpperCase() + nameInput.value.substring(1).toLowerCase();
+        const p = document.createElement('p');
+        p.textContent = newName;
+        userName.appendChild(p);
+        nameInput.value = '';
+
     }
 }
 
@@ -34,6 +42,7 @@ function getDate() {
 }
 
 function addPhoto() {
+    const photoRandom = Math.round(Math.random() * 10 - 4);
     if (document.getElementById('photo').value !== '') { userPhoto.src = photo.value; }
     else {
         switch (photoRandom) {
@@ -63,7 +72,11 @@ function addPhoto() {
 
 function checkSpam() {
     let antiSpam = chat.value.replace(/viagra|виагра|ххх|XXX/gi, '***');
-    userChat.textContent = antiSpam;
+    const antiP = document.createElement('p');
+    antiP.textContent = antiSpam;
+    userName.appendChild(antiP);
+    chat.value = '';
+
 }
 function getComment() {
     getCheck();
@@ -74,7 +87,93 @@ function getComment() {
 button.addEventListener('click', getComment);
 
 
-//НЕ МОГУ РАЗОБРАТЬСЯ В ЧЁМ ОШИБКА...
+
+
+
+
+
+
+
+
+
+
+// let options = {
+//     day: 'numeric',
+//     month: 'numeric',
+//     year: 'numeric',
+//     timezone: 'UTC',
+//     hour: 'numeric',
+//     minute: 'numeric'
+// };
+// let nameInput = document.getElementById('name');
+// let check = document.getElementById('checkbox');
+// let photo = document.getElementById('photo');
+// let chat = document.getElementById('chat');
+// let button = document.getElementById('button');
+
+// let userName = document.getElementById('userName');
+// let userPhoto = document.getElementById('userPhoto');
+// let userChat = document.getElementById('userChat');
+// let date = document.getElementById('date');
+
+// let photoRandom = Math.round(Math.random() * 10 - 4);
+
+// function getCheck() {
+//     if (check.checked || document.getElementById('name').value === '') { userName.textContent = 'username'; }
+//     else {
+//         let newName = nameInput.value[0].toUpperCase() + nameInput.value.slice(1).toLowerCase();
+//         return (userName.textContent = newName);
+//         document.getElementById('userName').textContent = document.getElementById('name').value;
+//     }
+// }
+
+// function getDate() {
+//     let nowDate = new Date();
+//     date.textContent = nowDate.toLocaleString("ru", options);
+// }
+
+// function addPhoto() {
+//     if (document.getElementById('photo').value !== '') { userPhoto.src = photo.value; }
+//     else {
+//         switch (photoRandom) {
+//             case 1:
+//                 userPhoto.src = './img/img1.jpg';
+//                 break;
+//             case 2:
+//                 userPhoto.src = './img/img2.jpg';
+//                 break;
+//             case 3:
+//                 userPhoto.src = './img/img3.jpg';
+//                 break;
+//             case 4:
+//                 userPhoto.src = './img/img4.jpg';
+//                 break;
+//             case 5:
+//                 userPhoto.src = './img/img5.jpg';
+//                 break;
+//             case 6:
+//                 userPhoto.src = './img/img6.jpg';
+//                 break;
+//             default:
+//                 userPhoto.src = './img/img6.jpg';
+//         }
+//     }
+// }
+
+// function checkSpam() {
+//     let antiSpam = chat.value.replace(/viagra|виагра|ххх|XXX/gi, '***');
+//     userChat.textContent = antiSpam;
+// }
+// function getComment() {
+//     getCheck();
+//     getDate()
+//     checkSpam();
+//     addPhoto();
+// }
+// button.addEventListener('click', getComment);
+
+
+
 
 
 
