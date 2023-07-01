@@ -1,12 +1,42 @@
-const bday = document.getElementById('birthDay'); // ВОТ ТУТ НЕ ПОНИМАЮ, КАК ИМЕННО ВЫБРАТЬ ДАТУ ДНЯ РОЖДЕНИЯ? чЕРЕЗ TEXTCONTENT НА ВЫХОДИТ, НАПРИМЕР...
-const bdayValue = new Date(bday.value);
-//console.log(bdayValue); - вот тут выходит invalid date
-const today = new Date();
-//console.log(today);
-const diffInMillisec = bdayValue - today;
-const diffDay = Math.floor(diffInMillisec / (1000 * 60 * 60 * 24));
+// 2. Напишем программу, которая будет считать количество дней до дня рождения пользователя и отображать это значение на странице.
+//     - Создайте HTML-страницу с заголовком "Дни до дня рождения"
+//     - Добавьте на страницу инпут, который позволит пользователю выбрать дату рождения в текущем году, и кнопку, при нажатии на которую, на страницу будет выводиться значение количества дней до дня рождения.
+//     - Если пользователь не ввёл дату рождения, под полем ввода будет появляться красное сообщение с просьбой ввести дату. Если пользователь введёт дату или изменит её, сообщение об ошибке будет скрыто.
+
+//     *** Добавьте условия, которые будут правильно определять склонение слова "день" в соответствии с грамматикой русского языка
+
+
+
 function getDiff() {
-  if (diffDay > 0) { console.log(diffDay) } else { console.log('Ваш день рождения закончился'); }
+  const bday = document.getElementById('birthDay');
+  const bdayValue = new Date(bday.value);
+  const today = new Date();
+  const diffInMillisec = bdayValue - today;
+  const diffDay = Math.ceil(diffInMillisec / (1000 * 60 * 60 * 24));
+  if (diffDay > 0 && (diffDay == 1 || diffDay == 21)) {
+    // console.log(diffDay)
+    const p = document.createElement('p');
+    p.textContent = `До вашего дня рождения ${diffDay} день`;
+  }
+  else if (diffDay > 0 && (diffDay == 2 || diffDay == 3 || diffDay == 4 || diffDay == 22 || diffDay == 23 || diffDay == 24)) {
+    // console.log(diffDay)
+    const p = document.createElement('p');
+    p.textContent = `До вашего дня рождения ${diffDay} дня`;
+  }
+  else if (diffDay < 0) {
+    //console.log('Ваш день рождения закончился'); 
+    const p = document.createElement('p');
+    p.textContent = `Ваш день рождения уже прошёл`;
+  }
+  else if (bdayValue = '') {
+    //console.log('Введите дату вашего рождения!');
+    //   // const p = document.createElement('p');
+    //   // p.textContent = 'Введите дату вашего рождения!';
+  }
+  else {// console.log(diffDay)
+    const p = document.createElement('p');
+    p.textContent = `До вашего дня рождения ${diffDay} дней`;
+  }
 }
 button.addEventListener('click', getDiff);
 
@@ -14,8 +44,8 @@ button.addEventListener('click', getDiff);
 
 
 //ВОПРОСЫ:
-//ПОЧЕМУ НЕ ХОЧЕТ СЧИТАТЬСЯ ФОРМУЛА НА СТР.6?
-//вЫВОД ДАННЫХ НА СТРАНИЧКУ, Я ТАК ПОНИМАЮ, ПРОИЗВОДИТСЯ ЧЕРЕЗ СОЗДАНИЕ <P>?
+//ПОЧЕМУ НЕ СОЗДАЕТСЯ ПАРАГРАФ, В КОТОРЫЙ ДОЛЖНА ВЫВОДИТЬСЯ ФРАЗА `До вашего дня рождения ${diffDay} дня`? ИЛИ ОСТАЛЬНЫЕ ВАРИАЦИИ В ЗАВИСИМОСТИ ОТ...
+//КАК В КОДЕ ОБОЗНАЧИТЬ УСЛОВИЕ НЕВЫБРАННОГО ДНЯ РОЖДЕНИЯ? Т.Е. ЕСЛИ ПОЛЬЗОВАТЕЛЬ НЕ ОБОЗНАЧИЛ ДЕНЬ, НО НАЖАЛ КНОПКУ ДОЛЖНА ПОЯВИТЬСЯ ФРАЗА "ВЫБЕРИТЕ ДЕНЬ РОЖДЕНИЯ". я ПОПЫТАЛАСЬ НА СТР.31, НО ВИДИМО ЭТО НЕ КОРРЕКТНО.
 
 
 
