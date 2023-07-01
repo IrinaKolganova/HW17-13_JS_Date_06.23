@@ -25,7 +25,12 @@ const date = document.getElementById('date');
 //     nameInput.value = '';
 // }
 function getCheck() {
-    if (check.checked || document.getElementById('name').value === '') { userName.textContent = 'username'; nameInput.value = ''; }
+    if (check.checked || document.getElementById('name').value === '') {
+        const p = document.createElement('p');
+        p.textContent = 'username';
+        userName.appendChild(p);
+        nameInput.value = '';
+    }
     else {
         const newName = nameInput.value[0].toUpperCase() + nameInput.value.substring(1).toLowerCase();
         const p = document.createElement('p');
@@ -38,12 +43,16 @@ function getCheck() {
 
 function getDate() {
     let nowDate = new Date();
-    date.textContent = nowDate.toLocaleString("ru", options);
+    const p = document.createElement('p');
+    p.textContent = nowDate.toLocaleString("ru", options);
+    userName.appendChild(p);
 }
 
 function addPhoto() {
     const photoRandom = Math.round(Math.random() * 10 - 4);
-    if (document.getElementById('photo').value !== '') { userPhoto.src = photo.value; }
+    if (document.getElementById('photo').value !== '') {
+        userPhoto.src = photo.value;
+    }
     else {
         switch (photoRandom) {
             case 1:
