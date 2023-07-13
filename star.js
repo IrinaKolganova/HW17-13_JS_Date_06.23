@@ -30,6 +30,7 @@ function getCheck() {
         p.textContent = 'username';
         userName.appendChild(p);
         nameInput.value = '';
+        check.checked = false;
     }
     else {
         const newName = nameInput.value[0].toUpperCase() + nameInput.value.substring(1).toLowerCase();
@@ -77,6 +78,8 @@ function addPhoto() {
                 userPhoto.src = './img/img6.jpg';
         }
     }
+    const p = document.createElement("p");
+    document.body.appendChild(p);
 }
 
 function checkSpam() {
